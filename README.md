@@ -1,4 +1,4 @@
-# crosslingual-llm-alignment
+# XEthicsBench (crosslingual-llm-alignment)
 ## (IN PROGRESS, NOT COMPLETE)
 
 A benchmark for evaluating how large language models vary in moral judgments across languages, and whether in-context learning (ICL) can steer responses toward a consistent alignment.
