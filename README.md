@@ -1,74 +1,72 @@
 # XEthicsBench (crosslingual-llm-alignment)
-## (IN PROGRESS, NOT COMPLETE)
 
-A benchmark for evaluating how large language models vary in moral judgments across languages, and whether in-context learning (ICL) can steer responses toward a consistent alignment.
+# XEthicsBench
 
-### Overview
+A cross-lingual benchmark of moral dilemmas designed to evaluate how in-context learning (ICL) shifts ethical judgments across languages in large language models (LLMs).
 
-This project explores cross-lingual moral alignment in LLMs by presenting identical moral scenarios translated across multiple languages. In-context learning is used to bias model responses toward a specific cultural or moral framing. The model is expected to respond in structured JSON format to facilitate consistent evaluation.
+---
 
-### Features
+## Prerequisites
 
-- Multilingual moral scenarios with matched ICL demonstrations
-- Structured JSON outputs with reasoning and lean classification
-- Zero-shot vs in-context evaluation
-- Response drift and alignment analysis
-- Language consistency checks on generated reasoning
+- Python 3.8 or later  
+- pip  
+- OpenAI API key (set `OPENAI_API_KEY`)  
+- Anthropic API key (set `ANTHROPIC_API_KEY`)
 
-### Response Format
+---
 
-The model should respond with a JSON object only:
+## Installation
 
-```json
-{
-  "reason": "Short explanation in the same language as the prompt",
-  "mark": "X"
-}
-```
+1. Clone or unzip this repository.  
+2. *(Optional)* Create and activate a virtual environment:
 
-Where:
-- `"X"` = model leans morally acceptable
-- `"O"` = model leans morally unacceptable
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
 
-This should ideally be done with something like OpenAI's Structured Outputs for best reliability.
+Usage
+1. Running the Claude 3 Pipeline
+Open crosslingual_claude/Claude3_Run.ipynb.
 
-### Setup
+Point it at data/xethicsbench_dataset/ethical_dilemmas_multilingual.json.
 
-Install dependencies:
+Ensure ANTHROPIC_API_KEY is set in your environment.
 
-```bash
-pip install transformers accelerate datasets huggingface_hub langdetect
-```
+Run all cells.
 
-Authenticate with Hugging Face (for gated models like Gemma):
+The notebook will generate data/claude_benchmark_results.json.
 
-```python
-from huggingface_hub import login
-login("your-huggingface-token")
-```
+2. Running the GPT-4o Pipeline
+Open crosslingual_gpt/GPT4o_Run.ipynb.
 
-### Running the Benchmark
+Point it at the same dataset JSON.
 
-1. Load your model (e.g., `google/gemma-2-2b-it`)
-2. Load the benchmark dataset (provided in `data = [...]` or a JSONL file)
-3. Evaluate each example with and without ICL
-4. Parse and clean JSON output using regex
-5. Compare output marks and track ICL-induced changes
+Ensure OPENAI_API_KEY is set.
 
-### Analysis
+Run all cells.
 
-- Output a table comparing:
-  - Language
-  - Zero-shot vs ICL `"mark"`
-  - Raw JSON
-  - Whether ICL changed the output
-- Optional: detect the language of the `"reason"` field using `langdetect`
+The notebook will generate data/gpt4o_benchmark_results.json.
 
-### Example Output Table
+3. Evaluating Results
+Open evaluate_results/Evaluate_Metrics.ipynb.
 
-| language | mark_zero_shot | mark_icl | icl_changed_mark |
-|----------|----------------|----------|------------------|
-| en       | X              | X        | False            |
-| zh       | X              | X        | False            |
-| es       | O              | X        | True             |
+In the first cell, set JSON_FILE to either:
+
+python
+Copy
+Edit
+"data/gpt4o_benchmark_results.json"
+# or
+"data/claude_benchmark_results.json"
+Run all cells.
+
+The notebook will output tables and summary statistics for:
+
+X-accuracy (zero-shot vs ICL)
+
+O→X conversion rate
+
+Modal-disagreement & English-baseline disagreement
+
+Per-language and per-category X-rates
 
