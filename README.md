@@ -24,7 +24,7 @@ A cross-lingual benchmark of moral dilemmas designed to evaluate how in-context 
 
 ## Usage
 ### 1. Running the Claude 3 Pipeline
-Open crosslingual_claude/Claude3_Run.ipynb.
+Open crosslingual_claude.ipynb.
 
 Use the XEthicsBench dataset json file found in the data folder.
 Ensure ANTHROPIC_API_KEY is set in your environment.
@@ -34,7 +34,7 @@ Run all cells.
 The notebook will generate data/claude_benchmark_results.json.
 
 ### 2. Running the GPT-4o Pipeline
-Open crosslingual_gpt/GPT4o_Run.ipynb.
+Open crosslingual_gpt.ipynb.
 
 Use the XEthicsBench dataset json file found in the data folder.
 Ensure OPENAI_API_KEY is set.
@@ -44,7 +44,7 @@ Run all cells.
 The notebook will generate data/gpt4o_benchmark_results.json.
 
 ### 3. Evaluating Results
-Open evaluate_results/Evaluate_Metrics.ipynb.
+Open evaluate_results.ipynb.
 
 In the first cell, set JSON_FILE to either:
 "data/gpt4o_benchmark_results.json" or "data/claude_benchmark_results.json"
