@@ -1,7 +1,5 @@
 # XEthicsBench (crosslingual-llm-alignment)
 
-# XEthicsBench
-
 A cross-lingual benchmark of moral dilemmas designed to evaluate how in-context learning (ICL) shifts ethical judgments across languages in large language models (LLMs).
 
 ---
