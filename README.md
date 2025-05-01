@@ -27,7 +27,7 @@ A cross-lingual benchmark of moral dilemmas designed to evaluate how in-context 
 Open crosslingual_claude.ipynb.
 
 Use the XEthicsBench dataset json file found in the data folder.
-Ensure ANTHROPIC_API_KEY is set in your environment.
+Ensure ANTHROPIC_API_KEY is set in your environment. (If you do not API access, just skip this step and use our claude_benchmark_results.json in data)
 
 Run all cells.
 
@@ -37,7 +37,7 @@ The notebook will generate data/claude_benchmark_results.json.
 Open crosslingual_gpt.ipynb.
 
 Use the XEthicsBench dataset json file found in the data folder.
-Ensure OPENAI_API_KEY is set.
+Ensure OPENAI_API_KEY is set. (If you do not API access, just skip this step and use our gpt4o_benchmark_results.json in data)
 
 Run all cells.
 
