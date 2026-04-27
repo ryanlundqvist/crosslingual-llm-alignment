@@ -1,6 +1,6 @@
 # XEthicsBench (crosslingual-llm-alignment)
 
-Note: This was part of when I started getting interested in safety! For upskilling, I worked with a peer to create the following benchmark: A cross-lingual benchmark of moral dilemmas designed to evaluate how in-context learning (ICL) shifts ethical judgments across languages in large language models (LLMs).
+Note: This project occured around when I started to become interested in mitigating existential risks. For upskilling, I worked with a peer to create the following benchmark: A cross-lingual benchmark of moral dilemmas designed to evaluate how in-context learning (ICL) shifts ethical judgments across languages in large language models (LLMs).
 
 ---
 
